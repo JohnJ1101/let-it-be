@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='icon' href='let-it-be-icon.jpg'>
+		<link rel='apple-touch-icon' href='let-it-be-icon.jpg'>
+		<meta name='apple-mobile-web-app-capable' content='yes'>
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+		<style>
+			.album{
+				overflow-y: scroll;
+			}
+			body{
+				position:relative;
+				background-color: #010101;
+				background-image: url(let-it-be.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;;
+				color: white;
+				min-width: 99%;
+				width: 100%;
+				min-height: 99%;
+				height: 100%;
+				overflow: hidden;
+				padding: -1%;
+				margin: -1%;
+			}
+			div.padding{
+				padding: 32px;
+				font-size: 32px;
+			}
+		</style>
+		<script>
+			var songs = [];
+
+			function play(id){
+				document.getElementsByTagName("audio")[0].src = "songs/"+songs[songs.length-(id)]+".m4a";
+				document.getElementsByTagName("audio")[0].play();
+			}
+
+			function resize(){
+				var albumDivs = document.getElementsByClassName('album');
+				for(i=0;i<albumDivs.length;i++){
+					albumDivs[i].style.width = window.innerWidth+"px";
+					albumDivs[i].style.height = window.innerHeight+"px";
+				}
+				setTimeout(resize,250);
+			}
+
+			window.onload = function(){
+				resize();
+				var songDivs = document.getElementsByClassName('song');
+				for (var i = songDivs.length - 1; i >= 0; i--) {
+					songs.push(songDivs[i].id);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<audio src="lib1.m4a"></audio>
+		<div class="let-it-be album" id="container">
+			<div class="padding">
+			<div class="pause-btn let-it-be" id="play-pause" style="font-size:64px;">
+					<a class="material-icons" onclick="document.getElementsByTagName('audio')[0].pause();">&#9646;&#9646;</i>
+					<a class="material-icons" onclick="document.getElementsByTagName('audio')[0].play();">&#9654;</i>
+				</div><br/><br/>
+				<div class="let-it-be song" id="lib1" onclick="play(1)">1. Two of Us</div><br/>
+				<div class="let-it-be song" id="lib2" onclick="play(2)">2. Dig a Pony</div><br/>
+				<div class="let-it-be song" id="lib3" onclick="play(3)">3. Across the Universe</div><br/>
+				<div class="let-it-be song" id="lib4" onclick="play(4)">4. I Me Mine</div><br/>
+				<div class="let-it-be song" id="lib5" onclick="play(5)">5. Dig It</div><br/>
+				<div class="let-it-be song" id="lib6" onclick="play(6)">6. Let it Be</div><br/>
+				<div class="let-it-be song" id="lib7" onclick="play(7)">7. Maggie Mae</div><br/>
+				<div class="let-it-be song" id="lib8" onclick="play(8)">8. I've Got a Feeling</div><br/>
+				<div class="let-it-be song" id="lib9" onclick="play(9)">9. One After 909</div><br/>
+				<div class="let-it-be song" id="lib10" onclick="play(10)">10. The Long and<br/><a style='padding: 16px'>Winding Road</a></div><br/>
+				<div class="let-it-be song" id="lib11" onclick="play(11)">11. For You Blue</div><br/>
+				<div class="let-it-be song" id="lib12" onclick="play(12)">12. Get Back</div><br/><br/>
+				<div class="pause-btn let-it-be" id="play-pause" style="font-size:64px;">
+					<a class="material-icons" onclick="document.getElementsByTagName('audio')[0].pause();">&#9646;&#9646;</i>
+					<a class="material-icons" onclick="document.getElementsByTagName('audio')[0].play();">&#9654;</i>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
